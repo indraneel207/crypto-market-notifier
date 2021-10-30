@@ -1,0 +1,17 @@
+{
+  "name": "node-cron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "node-cron": "^3.0.0",
+    "sound-play": "^1.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
