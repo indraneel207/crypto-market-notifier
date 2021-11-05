@@ -8,9 +8,11 @@
     "dev": "nodemon ./index.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "node-cron": "^3.0.0",
-    "sound-play": "^1.1.0"
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io-client": "^2.4.0",
+    "sound-play": "^1.1.0",
+    "sqlite3": "^5.0.2"
   },
   "author": "",
   "license": "ISC"
