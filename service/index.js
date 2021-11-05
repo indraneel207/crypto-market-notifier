@@ -15,6 +15,7 @@ const getSoundProperties = () => {
 }
 
 const soundProperties = getSoundProperties()
+const tickProperties = getSoundProperties()
 
 const playSound = () => {
   const { setOn, setOff, value: isSoundPlaying } = soundProperties
@@ -23,6 +24,16 @@ const playSound = () => {
     sound.play('./files/tone.mp3')
     setOn()
     setTimeout(setOff, 23000)
+  }
+}
+
+const playTick = () => {
+  const { setOn, setOff, value: isSoundPlaying } = tickProperties
+
+  if (!isSoundPlaying()) {
+    sound.play('./files/tick.mp3')
+    setOn()
+    setTimeout(setOff, 2000)
   }
 }
 
@@ -39,10 +50,12 @@ const updateMaxMinValuesInDB = (entry, updateObject) => {
     if (minValueInDb > +price) {
       minValueInDb = +price
       isChanged = true
+      playTick()
     }
     if (maxValueInDb < +price) {
       maxValueInDb = +price
       isChanged = true
+      playTick()
     }
     if (isChanged) updateEntryToTable({ currencyName, minValueInDb, maxValueInDb })
   }
