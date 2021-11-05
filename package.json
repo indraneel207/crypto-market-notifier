@@ -1,5 +1,5 @@
 {
-  "name": "node-cron",
+  "name": "crypto-market-notifier",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,6 @@
     "sound-play": "^1.1.0",
     "sqlite3": "^5.0.2"
   },
-  "author": "",
+  "author": "Indraneel Vairagare",
   "license": "ISC"
 }
