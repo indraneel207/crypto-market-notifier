@@ -86,9 +86,13 @@ const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
 
       logUpdate(
         boxen(
-          `CRYPTO COIN: ${currencyName}\n\nCurrent Price: ${fixDecimalDigitsInNumber(price)}\n\nMIN: ${fixDecimalDigitsInNumber(
-            minValueInDb
-          )} | MAX: ${fixDecimalDigitsInNumber(maxValueInDb)}`,
+          `CRYPTO COIN: ${currencyName}\n\nCurrent Price: ${fixDecimalDigitsInNumber(
+            price
+          )}\n\n24 Hour Details:\nMIN: ${fixDecimalDigitsInNumber(minValueInDb)} | MAX: ${fixDecimalDigitsInNumber(
+            maxValueInDb
+          )}\n\nTarget Details:\nBID: ${fixDecimalDigitsInNumber(bidValue)} | ASK: ${fixDecimalDigitsInNumber(
+            askValue
+          )}`,
           {
             title: `Last Updated: ${moment().format('LTS')}`,
             padding: 2,
