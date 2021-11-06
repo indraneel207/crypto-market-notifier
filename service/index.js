@@ -88,9 +88,9 @@ const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
         boxen(
           `CRYPTO COIN: ${currencyName}\n\nCurrent Price: ${fixDecimalDigitsInNumber(
             price
-          )}\n\n24 Hour Details:\nMIN: ${fixDecimalDigitsInNumber(minValueInDb)} | MAX: ${fixDecimalDigitsInNumber(
+          )}\n\nStats:\nMIN: ${fixDecimalDigitsInNumber(minValueInDb)} | MAX: ${fixDecimalDigitsInNumber(
             maxValueInDb
-          )}\n\nTarget Details:\nBID: ${fixDecimalDigitsInNumber(bidValue)} | ASK: ${fixDecimalDigitsInNumber(
+          )}\n\nTarget:\nBID: ${fixDecimalDigitsInNumber(bidValue)} | ASK: ${fixDecimalDigitsInNumber(
             askValue
           )}`,
           {
