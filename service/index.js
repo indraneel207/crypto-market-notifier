@@ -1,5 +1,7 @@
 const moment = require('moment')
 const sound = require('sound-play')
+const logUpdate = require('log-update')
+const boxen = require('boxen')
 const { addEntryToTable, updateEntryToTable, getEntryFromTable } = require('../database')
 
 const getSoundProperties = () => {
@@ -82,10 +84,21 @@ const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
         price
       })
 
-      console.log(
-        `Update at ${moment().format('LTS')} | price: ${fixDecimalDigitsInNumber(
-          price
-        )} | MIN: ${fixDecimalDigitsInNumber(minValueInDb)} | MAX: ${fixDecimalDigitsInNumber(maxValueInDb)}`
+      logUpdate(
+        boxen(
+          `CRYPTO COIN: ${currencyName}\n\nCurrent Price: ${fixDecimalDigitsInNumber(price)}\n\nMIN: ${fixDecimalDigitsInNumber(
+            minValueInDb
+          )} | MAX: ${fixDecimalDigitsInNumber(maxValueInDb)}`,
+          {
+            title: `Last Updated: ${moment().format('LTS')}`,
+            padding: 2,
+            margin: 1,
+            borderStyle: 'double',
+            borderColor: 'green',
+            titleAlignment: 'right',
+            float: 'center'
+          }
+        )
       )
     })
   }

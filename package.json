@@ -8,7 +8,9 @@
     "dev": "nodemon ./index.js"
   },
   "dependencies": {
+    "boxen": "^5.1.2",
     "express": "^4.17.1",
+    "log-update": "^4.0.0",
     "moment": "^2.29.1",
     "socket.io-client": "^2.4.0",
     "sound-play": "^1.1.0",
