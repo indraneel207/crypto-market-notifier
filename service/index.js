@@ -4,6 +4,8 @@ const logUpdate = require('log-update')
 const boxen = require('boxen')
 const { addEntryToTable, updateEntryToTable, getEntryFromTable } = require('../database')
 
+let lastPrice, tempPrice
+
 const getSoundProperties = () => {
   let isSoundPlaying = false
   const setSound = (val) => {
@@ -66,6 +68,15 @@ const updateMaxMinValuesInDB = (entry, updateObject) => {
 
 const getCryptoCurrencyInfo = (tickerObj = {}, currencyName = '') => tickerObj[currencyName] || {}
 
+const getBoxBorder = (lastPrice, currentPrice) => lastPrice && +lastPrice > +currentPrice ? 'red' : 'green'
+
+const updatePrices = (price) => {
+  if (!lastPrice || tempPrice !== price) {
+    lastPrice = tempPrice
+    tempPrice = price
+  }
+}
+
 const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
   if (price !== undefined || price !== null) {
     getEntryFromTable({ currencyName }, (entry) => {
@@ -84,6 +95,9 @@ const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
         price
       })
 
+      // Updating the last and current prices
+      updatePrices(price)
+
       logUpdate(
         boxen(
           `CRYPTO COIN: ${currencyName}\n\nCurrent Price: ${fixDecimalDigitsInNumber(
@@ -98,7 +112,7 @@ const checkForPrice = ({ currencyName, price, bidValue, askValue }) => {
             padding: 2,
             margin: 1,
             borderStyle: 'double',
-            borderColor: 'green',
+            borderColor: getBoxBorder(lastPrice, price),
             titleAlignment: 'right',
             float: 'center'
           }
