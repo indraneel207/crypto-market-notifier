@@ -8,6 +8,7 @@
     "dev": "nodemon ./index.js"
   },
   "dependencies": {
+    "async-exit-hook": "^2.0.1",
     "boxen": "^5.1.2",
     "express": "^4.17.1",
     "log-update": "^4.0.0",

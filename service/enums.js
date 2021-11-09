@@ -41,5 +41,7 @@ module.exports.queries = {
   UPDATE_ENTRY: 'UPDATE alarms set min_value = ?, max_value = ? where name = ?',
 
   // Delete
-  DELETE_ENTRY: 'DELETE FROM alarms where id = ?'
+  DELETE_ENTRY: 'DELETE FROM alarms where id = ?',
+  
+  DELETE_TABLE: 'DROP TABLE IF EXISTS alarms'
 }

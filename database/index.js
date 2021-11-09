@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3')
 const { queries } = require('../service/enums')
+const exitHook = require('async-exit-hook')
 const db = new sqlite3.Database('./database/alarms.sqlite3')
 
 module.exports.setupDB = () => {
@@ -29,3 +30,12 @@ module.exports.getEntryFromTable = ({ currencyName }, callback) => {
     else callback(entry)
   })
 }
+
+exitHook((callback) => {
+  db.run(queries.DELETE_TABLE, () => {
+    db.close(() => {
+      console.log('\nTable Deleted & DB connection closed')
+      callback()
+    })
+  })
+})
