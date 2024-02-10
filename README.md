@@ -18,7 +18,7 @@ Crypto Market Notifier is a tool designed for cryptocurrency traders. It provide
 - Customizable bid and ask values for each cryptocurrency the user is interested in.
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/yourusername/crypto-market-notifier.git`
+1. Clone the repository: `git clone https://github.com/indraneel207/crypto-market-notifier.git`
 2. Navigate into the project directory: `cd crypto-market-notifier`
 3. Install the dependencies: `npm install`
 
